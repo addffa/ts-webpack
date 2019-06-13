@@ -1,11 +1,26 @@
 import _ from 'lodash';
-import './style.css';
+import printMe from './print';
 
 function component(): Node {
     const elem = document.createElement('div');
+    const btn = document.createElement('button');
+
+    btn.innerHTML = "click bro!";
+    btn.onclick = () => (console.log("printMe"));
     elem.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    elem.classList.add('tes');
+    elem.appendChild(btn);
+
     return elem;
 }
 
-document.body.appendChild(component());
+let elem = component();
+document.body.appendChild(elem);
+
+if (module.hot) {
+    module.hot.accept('./print', function() {
+        console.log('Accepting the updated printMe module!');
+        document.body.removeChild(elem);
+        elem = printMe();
+        document.body.appendChild(elem);
+    })
+}
