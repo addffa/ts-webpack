@@ -19,10 +19,24 @@ const config: webpack.Configuration = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".ts", ".tsx", ".js", ".json"]
   },
-
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "ts-loader" }
+      {
+        test: /\.(ts)x?$/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css?$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
     ]
   },
   plugins: [htmlPlugin]

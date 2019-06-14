@@ -7,13 +7,17 @@
     "lodash": "^4.17.11",
     "lodash-es": "^4.17.11",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@types/html-webpack-plugin": "^3.2.0",
     "@types/lodash": "^4.14.134",
     "@types/react": "^16.8.19",
@@ -38,7 +42,7 @@
     "build": "webpack --mode production --config webpack.prod.ts",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --hotOnly",
-    "dev": "webpack-dev-server --config webpack.dev.ts"
+    "dev": "webpack-dev-server --config webpack.dev.ts --hotOnly"
   },
   "repository": {
     "type": "git",

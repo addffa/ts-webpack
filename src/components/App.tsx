@@ -1,7 +1,15 @@
-import * as React from "react";
+import React, { Component } from "react";
+import { hot } from "react-hot-loader";
+import './App.css';
 
-export interface IAppProps {}
-
-export default function IApp(props: IAppProps) {
-  return <h1>Hello React Typescript!</h1>;
+class App extends Component {
+  render() {
+    return(
+      <div className="App">
+        <h1>React with typescript</h1>
+      </div>
+    )
+  }
 }
+
+export default hot(module)(App);

@@ -15,10 +15,33 @@ const config: webpack.Configuration = {
   devtool: 'inline-source-map',
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "ts-loader" }
+      {
+        test: /\.(ts)x?$/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(ts)x?/,
+        use: "react-hot-loader/webpack",
+        include: /node_modules/
+      },
+      {
+        test: /\.css?$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [
+    htmlPlugin,
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
 
 export default config;
