@@ -4,6 +4,8 @@ import App from "./components/App";
 import Clock from "./components/Clock";
 import Card from "./components/Card";
 import ButtonHandling from "./components/ButtonHandling";
+import LoginControl from "./components/LoginControl";
+import Movies from "./components/Movies";
 
 const Index = () => {
   return (
@@ -15,6 +17,8 @@ const Index = () => {
       <ButtonHandling
         children={<App />}
       />
+      <LoginControl />
+      <Movies />
     </div>
   );
 };
